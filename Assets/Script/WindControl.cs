@@ -33,7 +33,7 @@ public class WindControl : MonoBehaviour
         {
             WindDirection = Random.Range(0, 2) == 0 ? -1f : 1f;
             WindPower = Random.Range(1, 6);
-            WindForce = WindDirection * (WindPower/8f);
+            WindForce = WindPower/2;
 
             if (WindDirection == 1f)
             {

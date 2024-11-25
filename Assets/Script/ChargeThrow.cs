@@ -130,12 +130,32 @@ public class ChargeThrow : MonoBehaviour
 
         float xDirection = Directionthrow * Mathf.Cos(angleInRadians); 
         float yDirection = Mathf.Sin(angleInRadians);
-        float windEffectX = WindControl.instance.WindForce * 0.5f; 
-        float windEffectY = WindControl.instance.WindForce * 0.1f;
        
-        Vector2 throwDirection = new Vector2(xDirection + windEffectX, yDirection + windEffectY).normalized;
+        Vector2 throwDirection = new Vector2(xDirection, yDirection).normalized;
 
-        rb.AddForce(throwDirection * (currentThrowForce+5), ForceMode2D.Impulse);
+        if (leftThrow == true)
+        {
+            if (WindControl.instance.WindDirection == 1f)
+            {
+                rb.AddForce(throwDirection * ((currentThrowForce + 5) - (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(throwDirection * ((currentThrowForce + 5) + (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+            }
+        }
+        else
+        {
+            if (WindControl.instance.WindDirection == 1f)
+            {
+                rb.AddForce(throwDirection * ((currentThrowForce + 5) + (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(throwDirection * ((currentThrowForce + 5) - (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+            }
+        }
+
 
         FirstForce = currentThrowForce;
         if(isDouble)
@@ -177,18 +197,37 @@ public class ChargeThrow : MonoBehaviour
         {
             Directionthrow = -1;
         }
-        float throwAngle = 60f;
+        float throwAngle = 55f;
 
         float angleInRadians = throwAngle * Mathf.Deg2Rad;
 
         float xDirection = Directionthrow * Mathf.Cos(angleInRadians);
         float yDirection = Mathf.Sin(angleInRadians);
-        float windEffectX = WindControl.instance.WindForce * 0.5f;
-        float windEffectY = WindControl.instance.WindForce * 0.1f;
 
-        Vector2 throwDirection = new Vector2(xDirection + windEffectX, yDirection + windEffectY).normalized;
+        Vector2 throwDirection = new Vector2(xDirection, yDirection).normalized;
 
-        rb.AddForce(throwDirection * (FirstForce+5), ForceMode2D.Impulse);
+        if (leftThrow == true)
+        {
+            if (WindControl.instance.WindDirection == 1f)
+            {
+                rb.AddForce(throwDirection * ((currentThrowForce + 5) - (WindControl.instance.WindForce*1.2f)), ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(throwDirection * ((currentThrowForce + 5) + (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+            }
+        }
+        else
+        {
+            if (WindControl.instance.WindDirection == 1f)
+            {
+                rb.AddForce(throwDirection * ((currentThrowForce + 5) + (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+            }
+            else
+            {
+                rb.AddForce(throwDirection * ((currentThrowForce + 5) - (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+            }
+        }
 
         FirstForce = 0f;
         Charge.SetActive(false);
