@@ -4299,7 +4299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwPoint: {fileID: 1051192311}
-  itemPrefab: {fileID: 4664905913389494345, guid: e02a573a09e00ed41a0d37349d51883b, type: 3}
+  itemPrefab: {fileID: 1117658820023298427, guid: e02a573a09e00ed41a0d37349d51883b, type: 3}
   itemPrefabHeavy: {fileID: 1282610427350544732, guid: 1b66315c3b8154246ac70b488925500b, type: 3}
   maxThrowForce: 14
   chargeSpeed: 7
@@ -5420,7 +5420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwPoint: {fileID: 1466140956}
-  itemPrefab: {fileID: 4664905913389494345, guid: e02a573a09e00ed41a0d37349d51883b, type: 3}
+  itemPrefab: {fileID: 1117658820023298427, guid: e02a573a09e00ed41a0d37349d51883b, type: 3}
   itemPrefabHeavy: {fileID: 1282610427350544732, guid: 1b66315c3b8154246ac70b488925500b, type: 3}
   maxThrowForce: 14
   chargeSpeed: 7

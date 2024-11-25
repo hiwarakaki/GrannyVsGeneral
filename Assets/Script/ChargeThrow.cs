@@ -3,13 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 using TMPro;
 
-public class ChargeThrow : MonoBehaviour 
+public class ChargeThrow : MonoBehaviour
 {
-    public Transform throwPoint;  
+    public Transform throwPoint;
     public GameObject itemPrefab;
-    public GameObject itemPrefabHeavy; 
-    public float maxThrowForce = 10f; 
-    public float chargeSpeed = 6f; 
+    public GameObject itemPrefabHeavy;
+    public float maxThrowForce = 10f;
+    public float chargeSpeed = 6f;
     public GameObject Charge;
     public Image Guage;
     public ChargeThrow anotherPlayer;
@@ -18,11 +18,11 @@ public class ChargeThrow : MonoBehaviour
     public bool leftThrow = false;
     private float currentThrowForce = 0f;
     private float FirstForce = 0f;
-    private bool isCharging = false;  
-    public bool isPlayerTurn = true; 
+    private bool isCharging = false;
+    public bool isPlayerTurn = true;
     public bool turnEnd = false;
 
-    public bool isHeavyThrow = false; 
+    public bool isHeavyThrow = false;
     public bool isHealing = false;
     public bool isDouble = false;
     public bool timeStop;
@@ -64,17 +64,17 @@ public class ChargeThrow : MonoBehaviour
                 else if (touch.phase == TouchPhase.Ended && isCharging)
                 {
                     timeStop = true;
-                    ThrowItem();  
-                    isCharging = false; 
+                    ThrowItem();
+                    isCharging = false;
                     turnEnd = true;
-      
+
                     StartCoroutine(SwitchTurn());
                 }
                 else if (currentThrowForce >= maxThrowForce)
                 {
                     timeStop = true;
-                    ThrowItem(); 
-                    isCharging = false; 
+                    ThrowItem();
+                    isCharging = false;
                     turnEnd = true;
                     StartCoroutine(SwitchTurn());
                 }
@@ -92,8 +92,8 @@ public class ChargeThrow : MonoBehaviour
                 turnEnd = true;
                 timeStop = true;
                 StartCoroutine(SwitchTurn());
-                HealPlayer(); 
-                isHealing = false;  
+                HealPlayer();
+                isHealing = false;
             }
             if (isCharging == false && timeStop == false)
             {
@@ -124,13 +124,13 @@ public class ChargeThrow : MonoBehaviour
         {
             Directionthrow = -1;
         }
-        float throwAngle = 55f; 
+        float throwAngle = 55f;
 
         float angleInRadians = throwAngle * Mathf.Deg2Rad;
 
-        float xDirection = Directionthrow * Mathf.Cos(angleInRadians); 
+        float xDirection = Directionthrow * Mathf.Cos(angleInRadians);
         float yDirection = Mathf.Sin(angleInRadians);
-       
+
         Vector2 throwDirection = new Vector2(xDirection, yDirection).normalized;
 
         if (leftThrow == true)
@@ -158,7 +158,7 @@ public class ChargeThrow : MonoBehaviour
 
 
         FirstForce = currentThrowForce;
-        if(isDouble)
+        if (isDouble)
         {
             StartCoroutine(SecondThrow());
         }
@@ -167,7 +167,7 @@ public class ChargeThrow : MonoBehaviour
         WindControl.instance.WindChange();
     }
 
-  
+
     IEnumerator SwitchTurn()
     {
         Gamemanager.instance.Skillable = false;
@@ -210,7 +210,7 @@ public class ChargeThrow : MonoBehaviour
         {
             if (WindControl.instance.WindDirection == 1f)
             {
-                rb.AddForce(throwDirection * ((currentThrowForce + 5) - (WindControl.instance.WindForce*1.2f)), ForceMode2D.Impulse);
+                rb.AddForce(throwDirection * ((currentThrowForce + 5) - (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
             }
             else
             {
@@ -241,7 +241,7 @@ public class ChargeThrow : MonoBehaviour
         Debug.Log(PlayerHealth);
         Healthbar.fillAmount = PlayerHealth / 40;
         Debug.Log(Healthbar.fillAmount);
-        if(PlayerHealth <= 0)
+        if (PlayerHealth <= 0)
         {
             Gamemanager.instance.gameEnd();
         }
