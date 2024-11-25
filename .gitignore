@@ -1,0 +1,32 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]serSettings/
+
+# Crash reports
+MemoryCaptures/
+CrashReports/
+
+# Avoid uploading auto-generated files
+[Aa]ssets/**/*.meta
+*.csproj
+*.sln
+*.userprefs
+*.unityproj
+*.pidb
+
+# Visual Studio/JetBrains Rider specific
+.vs/
+.idea/
+.vscode/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# GitHub Desktop or Git configuration
+.git/
