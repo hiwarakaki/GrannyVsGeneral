@@ -50,7 +50,7 @@ public class Gamemanager : MonoBehaviour
         granny.turnEnd = true;
         SkeletonAnimation GrannyskeletonAnimation = granny.GetComponent<SkeletonAnimation>();
         SkeletonAnimation GeneralskeletonAnimation = granny.GetComponent<SkeletonAnimation>();
-        if (general.HealPoint <= 0)
+        if (general.PlayerHealth <= 0)
         {
             winText = "Granny Won!";
             winTextBox.text = winText;
