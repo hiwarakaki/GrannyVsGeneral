@@ -210,22 +210,22 @@ public class ChargeThrow : MonoBehaviour
         {
             if (WindControl.instance.WindDirection == 1f)
             {
-                rb.AddForce(throwDirection * ((currentThrowForce + 5) - (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+                rb.AddForce(throwDirection * ((FirstForce + 5) - (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
             }
             else
             {
-                rb.AddForce(throwDirection * ((currentThrowForce + 5) + (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+                rb.AddForce(throwDirection * ((FirstForce + 5) + (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
             }
         }
         else
         {
             if (WindControl.instance.WindDirection == 1f)
             {
-                rb.AddForce(throwDirection * ((currentThrowForce + 5) + (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+                rb.AddForce(throwDirection * ((FirstForce + 5) + (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
             }
             else
             {
-                rb.AddForce(throwDirection * ((currentThrowForce + 5) - (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
+                rb.AddForce(throwDirection * ((FirstForce + 5) - (WindControl.instance.WindForce * 1.2f)), ForceMode2D.Impulse);
             }
         }
 

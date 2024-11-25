@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
+using TMPro;
 
 public class Gamemanager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Gamemanager : MonoBehaviour
     public ChargeThrow granny;
     public ChargeThrow general;
     public string winText;
+    public TextMeshProUGUI winTextBox;
 
     private void Awake()
     {
@@ -51,12 +53,14 @@ public class Gamemanager : MonoBehaviour
         if (general.HealPoint <= 0)
         {
             winText = "Granny Won!";
+            winTextBox.text = winText;
             GrannyskeletonAnimation.AnimationState.SetAnimation(0, "Cheer Friendly", false); // เล่น Animation "normal_hit"
             GeneralskeletonAnimation.AnimationState.SetAnimation(0, "Moody UnFriendly", true); // กลับไปเล่น "idle" หลังจากจบ
         }
         else
         {
             winText = "General Won!";
+            winTextBox.text = winText;
             GrannyskeletonAnimation.AnimationState.SetAnimation(0, "Moody UnFriendly", true); // เล่น Animation "normal_hit"
             GeneralskeletonAnimation.AnimationState.SetAnimation(0, "Cheer Friendly", true); // กลับไปเล่น "idle" หลังจากจบ
         }
