@@ -164,7 +164,6 @@ public class ChargeThrow : MonoBehaviour
         }
         currentThrowForce = 0f;
         Charge.SetActive(false);
-        WindControl.instance.WindChange();
     }
 
 
@@ -180,6 +179,7 @@ public class ChargeThrow : MonoBehaviour
             anotherPlayer.timeStop = false;
         }
         Gamemanager.instance.ChangeTurn();
+        WindControl.instance.WindChange();
         Gamemanager.instance.Skillable = true;
         isPlayerTurn = !isPlayerTurn;
     }
@@ -231,7 +231,6 @@ public class ChargeThrow : MonoBehaviour
 
         FirstForce = 0f;
         Charge.SetActive(false);
-        WindControl.instance.WindChange();
     }
 
     public void TakeDamage(int Damage)

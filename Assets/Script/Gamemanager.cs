@@ -49,20 +49,20 @@ public class Gamemanager : MonoBehaviour
         general.turnEnd = true;
         granny.turnEnd = true;
         SkeletonAnimation GrannyskeletonAnimation = granny.GetComponent<SkeletonAnimation>();
-        SkeletonAnimation GeneralskeletonAnimation = granny.GetComponent<SkeletonAnimation>();
+        SkeletonAnimation GeneralskeletonAnimation = general.GetComponent<SkeletonAnimation>();
         if (general.PlayerHealth <= 0)
         {
             winText = "Granny Won!";
             winTextBox.text = winText;
-            GrannyskeletonAnimation.AnimationState.SetAnimation(0, "Cheer Friendly", false); // เล่น Animation "normal_hit"
-            GeneralskeletonAnimation.AnimationState.SetAnimation(0, "Moody UnFriendly", true); // กลับไปเล่น "idle" หลังจากจบ
+            GrannyskeletonAnimation.AnimationState.SetAnimation(0, "Cheer Friendly", true);
+            GeneralskeletonAnimation.AnimationState.SetAnimation(0, "Moody UnFriendly", true);
         }
         else
         {
             winText = "General Won!";
             winTextBox.text = winText;
-            GrannyskeletonAnimation.AnimationState.SetAnimation(0, "Moody UnFriendly", true); // เล่น Animation "normal_hit"
-            GeneralskeletonAnimation.AnimationState.SetAnimation(0, "Cheer Friendly", true); // กลับไปเล่น "idle" หลังจากจบ
+            GrannyskeletonAnimation.AnimationState.SetAnimation(0, "Moody UnFriendly", true);
+            GeneralskeletonAnimation.AnimationState.SetAnimation(0, "Cheer Friendly", true);
         }
         EndUI.SetActive(true);
     }
