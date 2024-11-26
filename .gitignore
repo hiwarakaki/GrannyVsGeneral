@@ -12,7 +12,6 @@ MemoryCaptures/
 CrashReports/
 
 # Avoid uploading auto-generated files
-[Aa]ssets/**/*.meta
 *.csproj
 *.sln
 *.userprefs
